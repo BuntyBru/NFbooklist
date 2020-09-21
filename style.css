@@ -1,0 +1,65 @@
+body {
+  background: antiquewhite;
+}
+
+.main-container {
+  margin: 0 auto;
+  max-width: 990px;
+  width: 100%;
+  margin-top: 5vh;
+}
+
+.book-list,
+.book-form {
+  box-shadow: 4px 4px 10px 0 rgba(10, 10, 20, 0.05);
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-top: 2rem;
+  padding: 15px;
+}
+
+.book-list {
+  height: 60vh;
+}
+
+.p-box {
+  width: 120px;
+  background: #1a1a2e;
+  margin-right: 10px;
+}
+
+.entry {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.entry-details-mid,
+.entry-details-last {
+  flex: 1;
+}
+
+.book-name {
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 4px;
+}
+
+.isbn {
+  margin-bottom: 0px;
+}
+
+.book-rating {
+  margin-bottom: 4px;
+}
+
+.book-price {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-family: "Merriweather", serif;
+}
+
+.writer-name {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  opacity: 0.5;
+  color: darkcyan;
+}
