@@ -3,6 +3,7 @@
 
 <head>
 	<title>Booklist</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script async src="https://kit.fontawesome.com/3bf109075f.js" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
@@ -39,17 +40,17 @@
 		<div class="book-form">
 
 
-			<form id="book-form">
+			<form id="book-form-parent">
 
 				<div class="pt-one">
 
 					<div class="form-group">
 						<label for="title">Title</label>
-						<input type="text" id="title" class="form-control">
+						<input type="text" id="title" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label for="author">Author</label>
-						<input type="text" id="author" class="form-control">
+						<input type="text" id="author" class="form-control" required>
 					</div>
 
 				</div>
@@ -57,12 +58,12 @@
 				<div class="pt-one">
 					<div class="form-group">
 						<label for="isbn">ISBN#</label>
-						<input type="text" id="isbn" class="form-control">
+						<input type="text" id="isbn" class="form-control" required>
 					</div>
 
 					<div class="form-group">
 						<label for="price">Price</label>
-						<input type="number" id="price" class="form-control">
+						<input type="number" id="price" class="form-control" required>
 					</div>
 
 				</div>
@@ -71,13 +72,13 @@
 				<div class="pt-one">
 					<div class="form-group">
 						<label for="rating">Rating</label>
-						<input type="number" id="rating" class="form-control">
+						<input type="number" id="rating" class="form-control" required max=5 min=1>
 					</div>
 
 				</div>
 
 
-				<input type="submit" value="Add Book" class="btn btn-primary btn-block">
+				<input type="submit" value="Submit" class="btn btn-primary btn-block">
 			</form>
 		</div>
 	</div>
