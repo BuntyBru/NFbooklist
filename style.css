@@ -19,7 +19,7 @@ body {
 }
 
 .book-list {
-  height: 60vh;
+  height: 50vh;
 }
 
 .p-box {
@@ -65,5 +65,34 @@ body {
 }
 
 /*Form css*/
-#book-form {
+.pt-one {
+  display: flex;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.pt-one .form-group:first-child {
+  margin-right: 3%;
+  margin-bottom: 3%;
+}
+
+input {
+  border: 1px solid lightgrey;
+  padding: 5px;
+  font-family: "Oswald", sans-serif;
+}
+label {
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 2px;
+}
+
+.btn-primary {
+  background: black;
+  color: white;
+  font-weight: 600;
+  padding: 10px;
 }
