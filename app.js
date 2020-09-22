@@ -23,6 +23,33 @@ class UserInterface {
       alertBox.remove();
     }, 3000);
   }
+
+  static AddBook(book) {
+    console.log("hello");
+    const entryBox = document.createElement("div");
+    entryBox.className = "entry";
+
+    const pBox = document.createElement("p");
+    pBox.className = "p-box";
+
+    const entryDetailsOne = document.createElement("div");
+    entryDetailsOne.className = "entry-details-mid";
+
+    entryDetailsOne.innerHTML = `<p class="book-name"> ${book.name} </p>
+    <p class="writer-name"> ${book.author} </p>
+    <p class="isbn">${book.isbn}</p>`;
+
+    const entryDetailsTwo = document.createElement("div");
+    entryDetailsTwo.className = "entry-details-mid";
+    entryDetailsTwo.innerHTML = `<p class="book-rating">${book.rating}</p>
+    <p class="book-price">$ ${book.price}</p>`;
+
+    entryBox.appendChild(pBox);
+    entryBox.appendChild(entryDetailsOne);
+    entryBox.appendChild(entryDetailsTwo);
+
+    document.querySelector(".book-list").appendChild(entryBox);
+  }
 }
 
 //book submission
@@ -40,6 +67,9 @@ document.querySelector("#book-form-parent").addEventListener("submit", (e) => {
 
   //validations and alerts
   let newBook = new Book(nameBook, authorName, isbn, price, rating);
+
   document.querySelector("#book-form-parent").reset();
   UserInterface.addAlert();
+
+  UserInterface.AddBook(newBook);
 });
