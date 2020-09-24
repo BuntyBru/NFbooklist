@@ -21,17 +21,19 @@ body {
 
 .book-list {
   height: 50vh;
+  padding-top: 0px;
+  overflow: auto;
 }
 
 .p-box {
   width: 120px;
+  height: 78px;
   background: #183055;
   margin-right: 10px;
 }
 
 .entry {
   display: flex;
-  margin-bottom: 1rem;
 }
 
 .entry-details-mid,
@@ -119,4 +121,21 @@ input[type="number"] {
   position: absolute;
   bottom: 0px;
   width: 100%;
+}
+
+.sort-parent {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background: white;
+}
+
+.sort-parent p {
+  margin-right: 20px;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-family: "Merriweather", serif;
+  background: antiquewhite;
+  border-radius: 12px;
+  cursor: pointer;
 }
