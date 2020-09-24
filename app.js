@@ -42,7 +42,10 @@ class UserInterface {
     const entryDetailsTwo = document.createElement("div");
     entryDetailsTwo.className = "entry-details-mid";
     entryDetailsTwo.innerHTML = `<p class="book-rating">${book.rating}</p>
-    <p class="book-price">$ ${book.price}</p>`;
+    <div class="book-price-parent">
+    <p class="symbol"> $ </p>
+    <p class="book-price"> ${book.price} </p>
+    </div>`;
 
     entryBox.appendChild(pBox);
     entryBox.appendChild(entryDetailsOne);
@@ -72,4 +75,30 @@ document.querySelector("#book-form-parent").addEventListener("submit", (e) => {
   UserInterface.addAlert();
 
   UserInterface.AddBook(newBook);
+});
+
+//sorting
+document.querySelector(".sortp").addEventListener("click", () => {
+  let listBooks = document.querySelector(".book-list").childNodes;
+
+  let itemArray = [];
+  listBooks.forEach((x) => {
+    if (x.nodeType == 1) {
+      itemArray.push(x);
+      console.log("======>", typeof x.querySelector(".book-price").innerHTML);
+    }
+  });
+
+  //sorting
+  itemArray.sort(function (a, b) {
+    return (
+      parseInt(a.querySelector(".book-price").innerHTML) -
+      parseInt(b.querySelector(".book-price").innerHTML)
+    );
+  });
+
+  console.log("this.itemArray", itemArray);
+  for (i = 0; i < itemArray.length; ++i) {
+    document.querySelector(".book-list").append(itemArray[i]);
+  }
 });

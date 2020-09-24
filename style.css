@@ -23,6 +23,7 @@ body {
   height: 50vh;
   padding-top: 0px;
   overflow: auto;
+  margin-top: 0px;
 }
 
 .p-box {
@@ -58,6 +59,16 @@ body {
   margin-bottom: 0px;
   margin-top: 0px;
   font-family: "Merriweather", serif;
+}
+
+.symbol {
+  margin-top: 0px;
+  margin-right: 3px;
+  font-family: "Merriweather", serif;
+}
+
+.book-price-parent {
+  display: flex;
 }
 
 .writer-name {
@@ -127,7 +138,6 @@ input[type="number"] {
   display: flex;
   position: sticky;
   top: 0;
-  background: white;
 }
 
 .sort-parent p {
@@ -135,7 +145,7 @@ input[type="number"] {
   padding: 5px 8px;
   font-size: 12px;
   font-family: "Merriweather", serif;
-  background: antiquewhite;
+  background: aquamarine;
   border-radius: 12px;
   cursor: pointer;
 }
