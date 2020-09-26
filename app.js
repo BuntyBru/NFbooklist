@@ -53,6 +53,29 @@ class UserInterface {
 
     document.querySelector(".book-list").appendChild(entryBox);
   }
+
+  static sortIt(val) {
+    let listBooks = document.querySelector(".book-list").childNodes;
+    let itemArray = [];
+
+    listBooks.forEach((x) => {
+      if (x.nodeType == 1) {
+        itemArray.push(x);
+      }
+    });
+
+    console.log("==>", listBooks);
+
+    itemArray.sort(function (a, b) {
+      return (
+        parseInt(a.querySelector("." + val).innerHTML) -
+        parseInt(b.querySelector("." + val).innerHTML)
+      );
+    });
+    for (let i = 0; i < itemArray.length; ++i) {
+      document.querySelector(".book-list").append(itemArray[i]);
+    }
+  }
 }
 
 //book submission
@@ -79,26 +102,11 @@ document.querySelector("#book-form-parent").addEventListener("submit", (e) => {
 
 //sorting
 document.querySelector(".sortp").addEventListener("click", () => {
-  let listBooks = document.querySelector(".book-list").childNodes;
-
-  let itemArray = [];
-  listBooks.forEach((x) => {
-    if (x.nodeType == 1) {
-      itemArray.push(x);
-      console.log("======>", typeof x.querySelector(".book-price").innerHTML);
-    }
-  });
-
-  //sorting
-  itemArray.sort(function (a, b) {
-    return (
-      parseInt(a.querySelector(".book-price").innerHTML) -
-      parseInt(b.querySelector(".book-price").innerHTML)
-    );
-  });
-
-  console.log("this.itemArray", itemArray);
-  for (i = 0; i < itemArray.length; ++i) {
-    document.querySelector(".book-list").append(itemArray[i]);
-  }
+  UserInterface.sortIt("book-price");
 });
+
+document.querySelector(".sortr").addEventListener("click", () => {
+  UserInterface.sortIt("book-rating");
+});
+
+//localStorage
