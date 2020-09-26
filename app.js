@@ -11,6 +11,12 @@ class Book {
 }
 
 class UserInterface {
+  static initialize() {
+    let books = Storage.fillList();
+    books.forEach((x) => {
+      UserInterface.AddBook(x);
+    });
+  }
   static addAlert() {
     const alertBox = document.createElement("div");
     alertBox.className = "alertBox";
@@ -63,9 +69,6 @@ class UserInterface {
         itemArray.push(x);
       }
     });
-
-    console.log("==>", listBooks);
-
     itemArray.sort(function (a, b) {
       return (
         parseInt(a.querySelector("." + val).innerHTML) -
@@ -76,10 +79,50 @@ class UserInterface {
       document.querySelector(".book-list").append(itemArray[i]);
     }
   }
+
+  static revSort(val) {
+    let listBooks = document.querySelector(".book-list").childNodes;
+    let itemArray = [];
+
+    listBooks.forEach((x) => {
+      if (x.nodeType == 1) {
+        itemArray.push(x);
+      }
+    });
+    itemArray.sort(function (a, b) {
+      return (
+        parseInt(b.querySelector("." + val).innerHTML) -
+        parseInt(a.querySelector("." + val).innerHTML)
+      );
+    });
+    for (let i = 0; i < itemArray.length; ++i) {
+      document.querySelector(".book-list").append(itemArray[i]);
+    }
+  }
 }
 
-//book submission
+//local storage
 
+class Storage {
+  static fillList() {
+    let books;
+    if (localStorage.getItem("books") == null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem("books"));
+    }
+    return books;
+  }
+
+  static addBooks(book) {
+    const books = Storage.fillList();
+    books.push(book);
+    localStorage.setItem("books", JSON.stringify(books));
+  }
+}
+
+//event handling
+document.addEventListener("DOMContentLoaded", UserInterface.initialize());
 document.querySelector("#book-form-parent").addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -98,6 +141,7 @@ document.querySelector("#book-form-parent").addEventListener("submit", (e) => {
   UserInterface.addAlert();
 
   UserInterface.AddBook(newBook);
+  Storage.addBooks(newBook);
 });
 
 //sorting
@@ -106,7 +150,5 @@ document.querySelector(".sortp").addEventListener("click", () => {
 });
 
 document.querySelector(".sortr").addEventListener("click", () => {
-  UserInterface.sortIt("book-rating");
+  UserInterface.revSort("book-rating");
 });
-
-//localStorage
